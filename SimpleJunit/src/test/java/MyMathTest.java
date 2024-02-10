@@ -23,6 +23,7 @@ class MyMathTest {
     }
 
     @Test
+    @DisplayName("Test de la somme")
     public void testSum() {
         Assertions.assertEquals(6, myMath.sum(myList));
     }
