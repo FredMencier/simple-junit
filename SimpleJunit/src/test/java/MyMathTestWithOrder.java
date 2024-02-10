@@ -3,7 +3,9 @@ import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
 
-class MyMathTest {
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class MyMathTestWithOrder {
 
     private MyMath myMath;
 
@@ -23,11 +25,13 @@ class MyMathTest {
     }
 
     @Test
+    @Order(2)
     public void testSum() {
         Assertions.assertEquals(6, myMath.sum(myList));
     }
 
     @Test
+    @Order(1)
     public void testSumWithBug() {
         Assertions.assertEquals(6, myMath.sumWithBug(myList));
     }
