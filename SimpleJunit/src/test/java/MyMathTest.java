@@ -33,4 +33,9 @@ class MyMathTest {
         Assertions.assertEquals(6, myMath.sumWithBug(myList));
     }
 
+    @Test
+    public void testSum2() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> myMath.sum2(null));
+    }
+
 }

@@ -23,4 +23,13 @@ public class MyMath {
         }
         return res + 1;
     }
+
+    public Integer sum2(final List<Integer> myList) throws IllegalArgumentException {
+        if (myList == null) throw new IllegalArgumentException("Liste vide");
+        int res = 0;
+        for (Integer nb : myList) {
+            res = res + nb;
+        }
+        return res;
+    }
 }
