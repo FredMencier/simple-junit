@@ -26,14 +26,22 @@ class MyMathTestWithOrder {
 
     @Test
     @Order(2)
+    @DisplayName("Test de la somme")
     public void testSum() {
         Assertions.assertEquals(6, myMath.sum(myList));
     }
 
     @Test
     @Order(1)
+    @DisplayName("Test de la somme avec bug")
     public void testSumWithBug() {
         Assertions.assertEquals(6, myMath.sumWithBug(myList));
     }
 
+    @Test
+    @Order(3)
+    @DisplayName("Test de la somme avec liste null")
+    public void testSum2() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> myMath.sum2(null));
+    }
 }

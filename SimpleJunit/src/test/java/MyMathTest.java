@@ -22,6 +22,16 @@ class MyMathTest {
         myMath = new MyMath();
     }
 
+    @AfterEach
+    public void tearDown() {
+        myMath = null;
+    }
+
+    @BeforeAll
+    public static void tearDownAll() {
+        myList.clear();
+    }
+
     @Test
     @DisplayName("Test de la somme")
     public void testSum() {
@@ -29,11 +39,13 @@ class MyMathTest {
     }
 
     @Test
+    @DisplayName("Test de la somme avec bug")
     public void testSumWithBug() {
         Assertions.assertEquals(6, myMath.sumWithBug(myList));
     }
 
     @Test
+    @DisplayName("Test de la somme avec liste null")
     public void testSum2() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> myMath.sum2(null));
     }
