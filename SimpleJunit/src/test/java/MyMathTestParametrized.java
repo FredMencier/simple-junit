@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
@@ -35,5 +36,16 @@ class MyMathTestParametrized {
     @ValueSource(ints = {99,0,1,2,3,4,5,6,7,8,9})
     public void testGetListParamWithFail(int index) {
         Assertions.assertNotNull(myMath.getIntegerList().get(index));
+    }
+
+    @ParameterizedTest
+    @DisplayName("Test de la liste avec paramètres")
+    @MethodSource("listIndexes")
+    public void testGetListParamWithMethod(int index) {
+        Assertions.assertNotNull(myMath.getIntegerList().get(index));
+    }
+
+    private static Integer[] listIndexes() {
+        return new Integer[]{0,1,2,3,4,5,6,7,8,9};
     }
 }
