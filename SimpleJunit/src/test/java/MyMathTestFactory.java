@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,7 +31,18 @@ class MyMathTestFactory {
 
     @TestFactory
     @DisplayName("Test de la liste avec TestFactory")
-    public Collection<DynamicTest> testGetListWithFactory() {
+    public Collection<DynamicTest> testGetListWithFactory0() {
+        List<Integer> integerList = myMath.getIntegerList();
+        return Arrays.asList(
+                dynamicTest("Test de l'element " + integerList.get(0), () -> {
+                    Assertions.assertNotNull(integerList.get(0));
+                })
+        );
+    }
+
+    @TestFactory
+    @DisplayName("Test de la liste avec TestFactory")
+    public Collection<DynamicTest> testGetListWithFactory1() {
         List<Integer> integerList = myMath.getIntegerList();
         Collection<DynamicTest> cols = new ArrayList<>();
         for (int i = 0; i < integerList.size(); i++) {
