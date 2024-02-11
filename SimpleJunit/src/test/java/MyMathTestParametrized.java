@@ -26,8 +26,14 @@ class MyMathTestParametrized {
     @ParameterizedTest
     @DisplayName("Test de la liste avec paramètres")
     @ValueSource(ints = {0,1,2,3,4,5,6,7,8,9})
-    public void testGetListParam0(int index) {
+    public void testGetListParam(int index) {
         Assertions.assertNotNull(myMath.getIntegerList().get(index));
     }
 
+    @ParameterizedTest
+    @DisplayName("Test de la liste avec paramètres")
+    @ValueSource(ints = {99,0,1,2,3,4,5,6,7,8,9})
+    public void testGetListParamWithFail(int index) {
+        Assertions.assertNotNull(myMath.getIntegerList().get(index));
+    }
 }
